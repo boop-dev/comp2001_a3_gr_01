@@ -41,7 +41,7 @@ public class SalesItemTest
     }
     
     /**
-     * 
+     * Tests if the name of a sales item can be accessed.
      */
     @Test
     public void testGetName() {
@@ -50,6 +50,9 @@ public class SalesItemTest
         assertEquals("Basketball", test1.getName());
     }
     
+    /**
+     * Tests if the price of a sales item can be accessed.
+     */
     @Test
     public void testGetPrice() {
         SalesItem test = new SalesItem("Gum", 2);
@@ -57,6 +60,9 @@ public class SalesItemTest
         assertEquals(5, test.getPrice());
     }
     
+    /**
+     * Tests if the number of comments on a sales item can be accessed
+     */
     @Test
     public void testGetNumberOfComments() {
         SalesItem test = new SalesItem("Shoe", 40);
@@ -65,6 +71,9 @@ public class SalesItemTest
         assertEquals(2, test.getNumberOfComments());
     }
     
+    /**
+     * Tests to see if a comment can be removed from a sales item.
+     */
     @Test
     public void testRemoveComment() {
         SalesItem test = new SalesItem("box", 56231);
@@ -75,6 +84,9 @@ public class SalesItemTest
         assertEquals(2, test.getNumberOfComments());
     }
     
+    /**
+     * Tests to see if a comment on a sales item can be upvoted.
+     */
     @Test
     public void testUpvoteComment() {
         Comment test = new Comment("Conny Springer", "Decent door", 3);
@@ -83,7 +95,10 @@ public class SalesItemTest
         assertEquals(2, test.getVoteCount());
         assertEquals(1, test.getVoteCount());
     }
-        
+    
+    /**
+     * Tests to see if a comment on a sales item can be downvoted.
+     */
     @Test
     public void testDownvoteComment() {
         Comment test = new Comment("Sanji Vinsmoke", "moss head", 4);
@@ -95,5 +110,70 @@ public class SalesItemTest
         assertEquals(1, test.getVoteCount());
     }
     
-
+    /**
+     * Tests to see if the most upvoted comment can be accessed.
+     * 
+     * Can't figure out
+     */
+    @Test
+    public void testMostHelpfulComment() {
+        
+    }
+    
+    /**
+     * Tests to see if the rating of a comment is valid (between 1 and 5 inclusive)
+     */
+    @Test
+    public void testRatingInvalid() {
+        int test = 1;
+        assertEquals(true, test>0 && test<6);
+        assertEquals(true, test<1 && test>5);
+    }
+    
+    /**
+     * Tests to see if a comment by a certain author is accessible.
+     * 
+     * Can't get to work
+     */
+    @Test
+    public void testFindCommentByAuthor() {
+        SalesItem test = new SalesItem("Bike", 100);
+        test.addComment("Joey Barnes", "Fast Bike", 4);
+        test.addComment("Harrison Johnson", "Speedy Bike", 3);
+        assertEquals("Fast Bike", test.findCommentByAuthor("Joey Barnes"));
+        
+    }
+    
+    /**
+     * Tests to see if a comment can be upvoted.
+     */
+    @Test
+    public void testUpvote() {
+        Comment test = new Comment("Roronoa Zoro", "I'm lost", 3);
+        test.upvote();
+        assertEquals(1, test.getVoteCount());
+        assertEquals(2, test.getVoteCount());
+    }
+    
+    /**
+     * Tests to see if a comment can be downvoted.
+     */
+    @Test
+    public void testDownvote() {
+        Comment test = new Comment("Zeke Yeager", "My comment", 4);
+        test.upvote();
+        test.downvote();
+        assertEquals(0, test.getVoteCount());
+        assertEquals(1, test.getVoteCount());
+    }
+    
+    /**
+     * Tests to see if the rating on a comment is accessible.
+     */
+    @Test
+    public void testGetRating() {
+        Comment test = new Comment("Obito Uchiha", "Comment", 2);
+        assertEquals(2, test.getRating());
+        assertEquals(1, test.getRating());
+    }
 }
