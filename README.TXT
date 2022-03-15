@@ -9,3 +9,6 @@ The current project is concerned only with customer comments for sales items. It
 code to create, store, show and manipulate customer comments.
 
 NOTE: There are several serious errors to be found in these classes.
+
+
+Testing plan author: Chiaha Izuchukwu

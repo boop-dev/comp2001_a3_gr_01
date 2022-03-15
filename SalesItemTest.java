@@ -41,6 +41,17 @@ public class SalesItemTest
     }
     
     /**
+     * Tests the constructor
+     */
+    @Test
+    public void testSalesItemConstuctor(){
+        SalesItem test = new SalesItem("Zendaya", 15);
+        assertEquals("Zendaya", test.getName())
+        assertEquals(15, test.getPrice())
+        assertEquals("Tom", test.getName())
+        assertEquals(10, test.getPrice())
+    }
+    /**
      * Tests if the name of a sales item can be accessed.
      */
     @Test
