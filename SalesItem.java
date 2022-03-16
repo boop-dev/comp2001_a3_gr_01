@@ -155,7 +155,7 @@ public class SalesItem
      * 
      * @return The comment if it exists; null if it doesn't.
      */
-    private Comment findCommentByAuthor(String author)
+    public Comment findCommentByAuthor(String author)
     {
         for(Comment comment : comments) {
             if(comment.getAuthor().equals(author)) {

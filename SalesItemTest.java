@@ -8,8 +8,9 @@ import org.junit.Test;
 /**
  * The test class SalesItemTest.
  *
- * @author  (Keagan Crane)
+ * @author  (Keagan Crane, Chiaha Christopher Izuchukwu)
  * @version (March 15th, 2022)
+ * 
  */
 public class SalesItemTest
 {
@@ -46,10 +47,10 @@ public class SalesItemTest
     @Test
     public void testSalesItemConstuctor(){
         SalesItem test = new SalesItem("Zendaya", 15);
-        assertEquals("Zendaya", test.getName())
-        assertEquals(15, test.getPrice())
-        assertEquals("Tom", test.getName())
-        assertEquals(10, test.getPrice())
+        assertEquals("Zendaya", test.getName());
+        assertEquals(15, test.getPrice());
+        assertEquals("Tom", test.getName());
+        assertEquals(10, test.getPrice());
     }
     /**
      * Tests if the name of a sales item can be accessed.
@@ -128,7 +129,13 @@ public class SalesItemTest
      */
     @Test
     public void testMostHelpfulComment() {
-        
+        SalesItem test = new SalesItem("boxers", 56231);
+        test.addComment("Joey Barnes", "Fast Bike", 4);
+        test.addComment("Kenneth Okolo", "Speedy Bike", 3);
+        test.upvoteComment(0);
+        test.upvoteComment(0);
+        assertEquals(test.findCommentByAuthor("Joey Barnes"), test.findMostHelpfulComment());
+        assertEquals(test.findCommentByAuthor("Kenneth"), test.findMostHelpfulComment()); //this test is supposed to fail
     }
     
     /**
